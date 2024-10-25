@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: testapp-app
+  # title: Wayfinder Application
+  description: Application created from the backstage software template
+  labels: {}
+  annotations:
+    backstage.io/source-location: url:https://github.com/appvia-demos/testapp
+    github.com/project-slug: appvia-demos/testapp
+    wayfinder/workspace: demo    
+    wayfinder/app-name: testapp
+    wayfinder/app-component-name: testapp-app
+  tags:
+    - wayfinder
+  links:
+    - url: https://github.com/appvia-demos/testapp
+      title: GitHub Repository
+      type: Code
+spec:
+  type: service
+  owner: user:default/amir-tayabali
+  lifecycle: experimental
+  dependsOn:
+    - resource:default/testapp-mysql
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: testapp-mysql
+  # title: Wayfinder Application DB
+  description: Database used by the Wayfinder Application
+  labels: {}
+  annotations:
+    backstage.io/source-location: url:https://github.com/appvia-demos/testapp
+    github.com/project-slug: appvia-demos/testapp
+    wayfinder/workspace: demo
+    wayfinder/app-name: testapp
+    wayfinder/app-component-name: testapp-mysql
+  tags:
+    - wayfinder
+  links:
+    - url: https://github.com/appvia-demos/testapp
+      title: GitHub Repository
+      type: Code
+spec:
+  type: database
+  owner: user:default/amir-tayabali
+  lifecycle: experimental
